@@ -46,7 +46,6 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::get('test', function () {
         
-
         Mail::send('emails.test', ['name' => 'data'], function ($m) {
             $m->from('webmaster@stockfree.com', 'Stockfree');
 
@@ -54,8 +53,10 @@ Route::group(['prefix' => 'admin'], function () {
         });
 
     });
-
     
     Route::get('test2', 'Test@test2');
 
-
+    Route::get('{input?}' , function ($input) {
+        //abort(403, 'Unauthorized actsion.');
+        abort(404, $input);
+    });
