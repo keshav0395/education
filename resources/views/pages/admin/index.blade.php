@@ -1,0 +1,43 @@
+@extends('layouts.admin')
+
+@section('content')
+
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+	<h1>helooo</h1>
+
+@endsection
