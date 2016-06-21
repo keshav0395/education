@@ -6,7 +6,7 @@
               <img src="/img/user2-160x160.jpg" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>{{ capt(Auth::User()->first_name.' '.Auth::User()->last_name) }}</p>
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>
@@ -25,57 +25,47 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       
       <ul class="sidebar-menu">
-        <li class="header">MAIN NAVIGATION</li>
         
-          <li class="active treeview">
-              <a href="#">
-                  <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+          <li class="{{ ( url()->current() ==  route('adminDashboard'))?'active':'' }}" >
+              <a href="{{ route('adminDashboard') }}">
+                  <i class="fa fa-dashboard"></i> <span>Dashboard</span>
               </a>
-              <ul class="treeview-menu">
-                  <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                  <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
-              </ul>
           </li>
-          <li class="treeview">
+
+          <li class="treeview {{( str_contains(url()->current(), 'CmsPage')?'active':'' )}}">
             <a href="#">
                 <i class="fa fa-files-o"></i>
-                <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+                <span>CMS Pages</span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                <li class="{{ ( url()->current() ==  route('addCmsPage'))?'active':'' }}">
+                    <a href="{{ route('addCmsPage') }}">
+                      <i class="fa fa-circle-o text-red"></i> Add Page
+                    </a>
+                </li>
+                
+                <li class="{{ ( url()->current() ==  route('publishedCmsPages'))?'active':'' }}">
+                    <a href="{{ route('publishedCmsPages') }}">
+                      <i class="fa fa-circle-o text-yellow"></i> <span>Published Pages</span>
+                      <small class="label pull-right bg-green">4</small>
+                    </a>
+                </li>
+
+                <li class="{{ ( url()->current() ==  route('draftCmsPages'))?'active':'' }}">
+                    <a href="{{ route('draftCmsPages') }}">
+                      <i class="fa fa-circle-o text-aqua"></i> <span>Draft Pages</span>
+                      <small class="label pull-right bg-red">7</small>
+                    </a>
+                </li>
             </ul>
           </li>
         
-        <li>
-            <a href="pages/widgets.html">
-                <i class="fa fa-th"></i> <span>Widgets</span>
-                <small class="label pull-right bg-green">new</small>
-            </a>
-        </li>
-
-        <li>
-            <a href="documentation/index.html">
-                <i class="fa fa-book"></i> <span>Documentation</span>
-            </a>
-        </li>
         
-        <li class="header">LABELS</li>
+<!--        <li class="header">LABELS</li>
         
-        <li><a href="#">
-            <i class="fa fa-circle-o text-red"></i> <span>Important</span></a>
-        </li>
-        
-        <li><a href="#">
-            <i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a>
-        </li>
-        
-        <li><a href="#">
+         <li><a href="#">
             <i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a>
-        </li>
+        </li> -->
 
       </ul>
     </section>

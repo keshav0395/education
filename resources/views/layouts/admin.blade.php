@@ -5,7 +5,7 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>App Name - @yield('title')</title>
+        <title>{{isset($title)?$title:'Education'}}</title>
         @include('partials.admin.head')
     
     </head>
@@ -19,20 +19,16 @@
 
             <div class="content-wrapper">
                 <section class="content-header">
-                      <h1>
-                            Dashboard
-                            <small>Control panel</small>
-                      </h1>
+                    @yield('heading')
+                      
                       @include('partials.admin.breadcrumb')
                 </section>
 
                 <!-- Main content -->
                 <section class="content">
-                    <div class="row">
-                        @include('partials.admin.boxes')
-                    </div>
 
                     @yield('content')
+                
                 </section>
 
             </div>

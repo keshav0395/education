@@ -21,6 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('gender', 6);
             $table->string('dob', 13);
             $table->string('description', 1000);
+            $table->string('location', 100);
+            $table->string('higher_education', 500);
+            $table->string('permanent_address', 500);
+            $table->string('pincode', 10);
+            $table->string('marital_status', 20);
             $table->string('password');
             $table->string('role', 10);
             $table->rememberToken();

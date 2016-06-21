@@ -39,24 +39,34 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('login', ['uses' => 'Auth\AuthController@adminLogin']);
 
     Route::group(['middleware' => 'role:admin'], function () {
+
     	Route::get('/', ['as' => 'adminHome', 'uses' => 'AdminController@index']);
+        Route::get('/dashboard', ['as' => 'adminDashboard', 'uses' => 'AdminController@index']);
+
+        Route::get('/addCmsPage', ['as' => 'addCmsPage', 'uses' => 'AdminController@addCmsPage']);
+        Route::get('/publishedCmsPages', ['as' => 'publishedCmsPages', 'uses' => 'AdminController@publishedCmsPages']);
+        Route::get('/draftCmsPages', ['as' => 'draftCmsPages', 'uses' => 'AdminController@draftCmsPages']);
+
+
+
     });
 
 });
 
     Route::get('test', function () {
         
-        Mail::send('emails.test', ['name' => 'data'], function ($m) {
+        prd(Auth::User());
+
+        /*Mail::send('emails.test', ['name' => 'data'], function ($m) {
             $m->from('webmaster@stockfree.com', 'Stockfree');
 
             $m->to('keshav.rexweb@gmail.com', 'Keshavv')->subject('Verify email on Stockfree');
-        });
+        });*/
 
     });
     
     Route::get('test2', 'Test@test2');
 
     Route::get('{input?}' , function ($input) {
-        //abort(403, 'Unauthorized actsion.');
         abort(404, $input);
     });

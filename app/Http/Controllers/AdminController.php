@@ -14,6 +14,23 @@ class AdminController extends Controller
     	return view('pages.admin.index');
     }
 
+    /************************************************************/
+    public function addCmsPage(){
+    	return view('pages.admin.addcmspage');
+    }
+
+    /************************************************************/
+    public function publishedCmsPages(){
+    	return view('pages.admin.publishedcmspages');
+    }
+
+    /************************************************************/
+    public function draftCmsPages(){
+    	return view('pages.admin.draftcmspages');
+    }
+
+    /************************************************************/
+
     public function login(){
     	return view('pages.admin.login');
     }
