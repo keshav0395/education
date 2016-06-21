@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Illuminate\Http\Request;
+
+use App\Http\Requests;
+
 class AuthController extends Controller
 {
     /*
@@ -64,9 +68,19 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+
+    protected function adminLogin(Request $request){
+
+        echo '<pre>'; print_r($request->all()); die;
+        if (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 'admin'])) {
+            return redirect()->intended('adminHome');
+        }
+    }
+
 }
