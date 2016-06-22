@@ -44,6 +44,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/dashboard', ['as' => 'adminDashboard', 'uses' => 'AdminController@index']);
 
         Route::get('/addCmsPage', ['as' => 'addCmsPage', 'uses' => 'AdminController@addCmsPage']);
+        Route::post('/addCmsPage', ['as' => 'postAddCmsPage', 'uses' => 'AdminController@postAddCmsPage']);
+
         Route::get('/publishedCmsPages', ['as' => 'publishedCmsPages', 'uses' => 'AdminController@publishedCmsPages']);
         Route::get('/draftCmsPages', ['as' => 'draftCmsPages', 'uses' => 'AdminController@draftCmsPages']);
 

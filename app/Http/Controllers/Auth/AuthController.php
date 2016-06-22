@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -82,9 +83,13 @@ class AuthController extends Controller
 
     protected function adminLogin(Request $request){
 
-        echo '<pre>'; print_r($request->all()); die;
+        $data = $request->all();
+        //echo '<pre>'; print_r(); die;
+
+        $email = $data['email'];
+        $password = $data['password'];
         if (Auth::attempt(['email' => $email, 'password' => $password, 'role' => 'admin'])) {
-            return redirect()->intended('adminHome');
+            return redirect()->intended('/admin');
         }
     }
 

@@ -24,5 +24,6 @@ class CommonFunctionsProvider extends ServiceProvider
     public function register()
     {
         require_once __DIR__ . '/../Http/Helpers/CommonFunctions.php';
+        require_once __DIR__ . '/../Http/Helpers/HtmlHelper.php';
     }
 }
